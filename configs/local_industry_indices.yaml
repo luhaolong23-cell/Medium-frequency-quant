@@ -1,0 +1,432 @@
+markets:
+  - market_code: US_EQ
+    market_name: United States Equities
+    status: partial
+    recommended_primary_family: SP500_SECTORS
+    benchmark_name: S&P 500
+    benchmark_symbol: ^GSPC
+    source_notes: >-
+      美国市场没有像日本和中国那样由单一交易所维护的统一行业指数底座；当前优先采用
+      S&P Dow Jones Indices 的 GICS 行业体系作为本地热门行业基准，Nasdaq/PHLX 行业指数可作为补充。
+    families:
+      - family_code: SP500_SECTORS
+        family_name: S&P 500 Sector Indices
+        provider_name: S&P Dow Jones Indices
+        provider_type: index_provider
+        source_url: https://www.spglobal.com/spdji/en/index-family/equity/us-equity/sp-sectors/
+        coverage: U.S. large cap equities
+        classification_standard: GICS
+        granularity: sector
+        implementation_priority: high
+        notes: 当前最适合作为 US_EQ 本地热门行业的首批标准底座。
+        indices:
+          - local_code: SP500_COMMUNICATION_SERVICES
+            name: Communication Services Select Sector
+            level: sector
+            proxy_symbol: XLC
+            match_sectors: ['communicationservices']
+            match_industries: ['internetcontentinformation', 'entertainment', 'telecomservices']
+          - local_code: SP500_CONSUMER_DISCRETIONARY
+            name: Consumer Discretionary Select Sector
+            level: sector
+            proxy_symbol: XLY
+            match_sectors: ['consumercyclical']
+            match_industries: ['specialtyretail', automanufacturers]
+          - local_code: SP500_CONSUMER_STAPLES
+            name: Consumer Staples Select Sector
+            level: sector
+            proxy_symbol: XLP
+            match_sectors: ['consumerdefensive']
+            match_industries: ['beveragesnonalcoholic', 'packagedfoods', 'householdpersonalproducts']
+          - local_code: SP500_ENERGY
+            name: Energy Select Sector
+            level: sector
+            proxy_symbol: XLE
+            match_sectors: ['energy']
+            match_industries: ['oilgasep', 'oilgasintegrated', 'oilgasmidstream']
+          - local_code: SP500_FINANCIALS
+            name: Financial Select Sector
+            level: sector
+            proxy_symbol: XLF
+            match_sectors: ['financialservices']
+            match_industries: ['banksdiversified', 'bankregional', 'capitalmarkets', 'insurance']
+          - local_code: SP500_HEALTH_CARE
+            name: Health Care Select Sector
+            level: sector
+            proxy_symbol: XLV
+            match_sectors: ['healthcare']
+            match_industries: ['drugmanufacturersgeneral', 'biotechnology', 'medicaldevices']
+          - local_code: SP500_INDUSTRIALS
+            name: Industrials Select Sector
+            level: sector
+            proxy_symbol: XLI
+            match_sectors: ['industrials']
+            match_industries: ['specialtyindustrialmachinery', 'aerospacedefense', 'railroads']
+          - local_code: SP500_INFORMATION_TECHNOLOGY
+            name: Information Technology Select Sector
+            level: sector
+            proxy_symbol: XLK
+            match_sectors: ['technology']
+            match_industries: ['semiconductors', 'semiconductorequipmentmaterials', 'softwareinfrastructure', 'softwareapplication', 'electroniccomponents', 'communicationequipment']
+          - local_code: SP500_MATERIALS
+            name: Materials Select Sector
+            level: sector
+            proxy_symbol: XLB
+            match_sectors: ['basicmaterials']
+            match_industries: ['specialtychemicals', 'cokingcoal', 'gold']
+          - local_code: SP500_REAL_ESTATE
+            name: Real Estate Select Sector
+            level: sector
+            proxy_symbol: XLRE
+            match_sectors: ['realestate']
+            match_industries: ['reitoffice', 'reitindustrial', 'reitresidential']
+          - local_code: SP500_UTILITIES
+            name: Utilities Select Sector
+            level: sector
+            proxy_symbol: XLU
+            match_sectors: ['utilities']
+            match_industries: ['utilitiesregulatedelectric', 'utilitiesregulatedgas', 'independentpowerproducers']
+      - family_code: SP_SELECT_INDUSTRIES
+        family_name: S&P Select Industry Indices
+        provider_name: S&P Dow Jones Indices
+        provider_type: index_provider
+        source_url: https://www.spglobal.com/spdji/en/education/article/an-overview-of-gics-and-sp-us-sector-select-industry-indices/
+        coverage: U.S. select industries
+        classification_standard: GICS
+        granularity: select_industry
+        implementation_priority: medium
+        notes: 用于补足半导体、军工、公用事业等更细的本地行业方向。
+        indices:
+          - local_code: SP_SELECT_SEMICONDUCTORS
+            name: Semiconductors Select Industry
+            level: select_industry
+            proxy_symbol: SOXX
+            match_sectors: ['technology']
+            match_industries: ['semiconductors', 'semiconductorequipmentmaterials', 'electroniccomponents', 'integratedcircuits']
+            notes: 过渡期可用 SOXX 或 SMH 做 yfinance 代理。
+          - local_code: SP_SELECT_AEROSPACE_DEFENSE
+            name: Aerospace & Defense Select Industry
+            level: select_industry
+            proxy_symbol: ITA
+            match_sectors: ['industrials']
+            match_industries: ['aerospacedefense', 'defenseaerospace', 'satellitespacecommunications']
+            notes: 过渡期可用 ITA 做 yfinance 代理。
+          - local_code: SP_SELECT_ELECTRIC_UTILITIES
+            name: Electric Utilities Select Industry
+            level: select_industry
+            proxy_symbol: XLU
+            match_sectors: ['utilities']
+            match_industries: ['utilitiesregulatedelectric', 'independentpowerproducers', 'renewableutilities']
+            notes: 过渡期先用 XLU 近似代理公用事业强度。
+
+  - market_code: CN_EQ
+    market_name: China Equities
+    status: ready
+    recommended_primary_family: CSI_ALL_SHARE_INDUSTRY_PRIORITY_L2
+    benchmark_name: 中证全指
+    benchmark_symbol: '000985'
+    source_notes: >-
+      中国市场优先采用中证指数有限公司的中证全指行业指数体系；若后续需要只覆盖上交所子集，
+      再补充上证行业分类指数系列。
+    families:
+      - family_code: CSI_ALL_SHARE_INDUSTRY_PREFERRED_L1
+        family_name: 中证全指行业优选指数系列（一级行业）
+        provider_name: 中证指数有限公司
+        provider_type: official_index_company
+        source_url: https://oss-ch.csindex.com.cn/static/html/csindex/public/uploads/indices/detail/files/zh_CN/20240510102751-000986_cn.pdf
+        coverage: 全A股一级行业
+        classification_standard: 中证行业分类
+        granularity: level_1_industry
+        implementation_priority: high
+        notes: 首批直接作为 CN_EQ 本地热门行业底座，覆盖 11 个一级行业。
+        indices:
+          - local_code: CSI_ALL_SHARE_ENERGY
+            name: 中证全指能源指数
+            level: level_1_industry
+            official_code: '000986'
+          - local_code: CSI_ALL_SHARE_MATERIALS
+            name: 中证全指原材料指数
+            level: level_1_industry
+            official_code: '000987'
+          - local_code: CSI_ALL_SHARE_INDUSTRIALS
+            name: 中证全指工业指数
+            level: level_1_industry
+            official_code: '000988'
+          - local_code: CSI_ALL_SHARE_CONSUMER_DISCRETIONARY
+            name: 中证全指可选消费指数
+            level: level_1_industry
+            official_code: '000989'
+          - local_code: CSI_ALL_SHARE_CONSUMER_STAPLES
+            name: 中证全指主要消费指数
+            level: level_1_industry
+            official_code: '000990'
+          - local_code: CSI_ALL_SHARE_HEALTH_CARE
+            name: 中证全指医药卫生指数
+            level: level_1_industry
+            official_code: '000991'
+          - local_code: CSI_ALL_SHARE_INFORMATION_TECHNOLOGY
+            name: 中证全指信息技术指数
+            level: level_1_industry
+            official_code: '000993'
+          - local_code: CSI_ALL_SHARE_COMMUNICATION_SERVICES
+            name: 中证全指通信服务指数
+            level: level_1_industry
+            official_code: '000994'
+          - local_code: CSI_ALL_SHARE_FINANCIALS
+            name: 中证全指金融指数
+            level: level_1_industry
+            official_code: '932075'
+          - local_code: CSI_ALL_SHARE_REAL_ESTATE
+            name: 中证全指地产指数
+            level: level_1_industry
+            official_code: '932076'
+          - local_code: CSI_ALL_SHARE_UTILITIES
+            name: 中证全指公用事业指数
+            level: level_1_industry
+            official_code: '000995'
+      - family_code: CSI_ALL_SHARE_INDUSTRY_PRIORITY_L2
+        family_name: 中证全指行业指数（重点二级/主题行业）
+        provider_name: 中证指数有限公司
+        provider_type: official_index_company
+        source_url: https://www.csindex.com.cn/zh-CN/downloads/industry-price-earnings-ratio
+        coverage: 全A股重点行业
+        classification_standard: 中证行业分类
+        granularity: level_2_industry
+        implementation_priority: medium
+        notes: 优先补半导体、计算机、军工、电力设备、券商这类与当前题材筛选最相关的行业。
+        indices:
+          - local_code: CSI_ALL_SHARE_COMPUTER
+            name: 中证全指计算机指数
+            level: level_2_industry
+            official_code: H30182
+            proxy_symbol: 512720.SS
+            match_sectors: ['technology']
+            match_industries: ['softwareapplication', 'softwareinfrastructure', 'informationtechnologyservices', 'computerhardware']
+          - local_code: CSI_ALL_SHARE_SEMICONDUCTOR_EQUIPMENT
+            name: 中证全指半导体产品与设备指数
+            level: level_2_industry
+            official_code: H30184
+            proxy_symbol: 512480.SS
+            match_sectors: ['technology']
+            match_industries: ['semiconductors', 'semiconductorequipmentmaterials', 'electroniccomponents', 'integratedcircuits']
+          - local_code: CSI_ALL_SHARE_AEROSPACE_DEFENSE
+            name: 中证全指航空航天与国防行业指数
+            level: level_2_industry
+            official_code: '932116'
+            proxy_symbol: 512660.SS
+            match_sectors: ['industrials']
+            match_industries: ['aerospacedefense', 'defenseaerospace', 'specialtyindustrialmachinery']
+          - local_code: CSI_ALL_SHARE_POWER_EQUIPMENT
+            name: 中证全指电力设备行业指数
+            level: level_2_industry
+            official_code: '932118'
+            proxy_symbol: 560930.SS
+            match_sectors: ['industrials', 'utilities']
+            match_industries: ['electricalequipment', 'electricalequipmentparts', 'batteries', 'renewableutilities']
+          - local_code: CSI_ALL_SHARE_SECURITIES_COMPANIES
+            name: 中证全指证券公司指数
+            level: level_2_industry
+            official_code: '399975'
+            proxy_symbol: 512880.SS
+            match_sectors: ['financialservices']
+            match_industries: ['capitalmarkets', 'securitiesexchanges', 'assetmanagement']
+
+  - market_code: JP_EQ
+    market_name: Japan Equities
+    status: ready
+    recommended_primary_family: TOPIX_17
+    benchmark_name: TOPIX
+    benchmark_symbol: ^TOPX
+    source_notes: >-
+      日本市场优先采用 JPX 的 TOPIX 行业体系。首批实现建议先用 TOPIX-17，后续再扩展到
+      TOPIX Sector Indices 的 33 个行业。
+    families:
+      - family_code: TOPIX_17
+        family_name: TOPIX-17 Series
+        provider_name: Japan Exchange Group
+        provider_type: exchange_index_family
+        source_url: https://www.jpx.co.jp/english/markets/indices/line-up/files/e_fac_13_sector.pdf
+        coverage: Tokyo Stock Exchange broad market
+        classification_standard: JPX TOPIX sector framework
+        granularity: 17_sector
+        implementation_priority: high
+        notes: 当前最适合作为 JP_EQ 本地热门行业的首批底座，粒度比 33 行业更适合第一版策略。
+        indices:
+          - local_code: TOPIX17_FOODS
+            name: TOPIX-17 FOODS
+            level: 17_sector
+            proxy_symbol: 1617.T
+          - local_code: TOPIX17_ENERGY_RESOURCES
+            name: TOPIX-17 ENERGY RESOURCES
+            level: 17_sector
+            proxy_symbol: 1618.T
+          - local_code: TOPIX17_CONSTRUCTION_MATERIALS
+            name: TOPIX-17 CONSTRUCTION & MATERIALS
+            level: 17_sector
+            proxy_symbol: 1619.T
+          - local_code: TOPIX17_RAW_MATERIALS_CHEMICALS
+            name: TOPIX-17 RAW MATERIALS & CHEMICALS
+            level: 17_sector
+            proxy_symbol: 1620.T
+          - local_code: TOPIX17_PHARMACEUTICAL
+            name: TOPIX-17 PHARMACEUTICAL
+            level: 17_sector
+            proxy_symbol: 1621.T
+          - local_code: TOPIX17_AUTOMOBILES_TRANSPORT_EQUIPMENT
+            name: TOPIX-17 AUTOMOBILES & TRANSPORTATION EQUIPMENT
+            level: 17_sector
+            proxy_symbol: 1622.T
+          - local_code: TOPIX17_STEEL_NONFERROUS_METALS
+            name: TOPIX-17 STEEL & NONFERROUS METALS
+            level: 17_sector
+            proxy_symbol: 1623.T
+          - local_code: TOPIX17_MACHINERY
+            name: TOPIX-17 MACHINERY
+            level: 17_sector
+            proxy_symbol: 1624.T
+          - local_code: TOPIX17_ELECTRIC_APPLIANCES_PRECISION
+            name: TOPIX-17 ELECTRIC APPLIANCES & PRECISION INSTRUMENTS
+            level: 17_sector
+            proxy_symbol: 1625.T
+          - local_code: TOPIX17_IT_SERVICES_OTHERS
+            name: TOPIX-17 IT & SERVICES, OTHERS
+            level: 17_sector
+            proxy_symbol: 1626.T
+          - local_code: TOPIX17_ELECTRIC_POWER_GAS
+            name: TOPIX-17 ELECTRIC POWER & GAS
+            level: 17_sector
+            proxy_symbol: 1627.T
+          - local_code: TOPIX17_TRANSPORTATION_LOGISTICS
+            name: TOPIX-17 TRANSPORTATION & LOGISTICS
+            level: 17_sector
+            proxy_symbol: 1628.T
+          - local_code: TOPIX17_COMMERCIAL_WHOLESALE
+            name: TOPIX-17 COMMERCIAL & WHOLESALE TRADE
+            level: 17_sector
+            proxy_symbol: 1629.T
+          - local_code: TOPIX17_RETAIL
+            name: TOPIX-17 RETAIL TRADE
+            level: 17_sector
+            proxy_symbol: 1630.T
+          - local_code: TOPIX17_BANKS
+            name: TOPIX-17 BANKS
+            level: 17_sector
+            proxy_symbol: 1631.T
+          - local_code: TOPIX17_FINANCIALS_EX_BANKS
+            name: TOPIX-17 FINANCIALS (EX BANKS)
+            level: 17_sector
+            proxy_symbol: 1632.T
+          - local_code: TOPIX17_REAL_ESTATE
+            name: TOPIX-17 REAL ESTATE
+            level: 17_sector
+            proxy_symbol: 1633.T
+      - family_code: TOPIX_33
+        family_name: TOPIX Sector Indices
+        provider_name: Japan Exchange Group
+        provider_type: exchange_index_family
+        source_url: https://www.jpx.co.jp/english/markets/indices/line-up/files/e_fac_13_sector.pdf
+        coverage: Tokyo Stock Exchange broad market
+        classification_standard: Securities Identification Code Committee sectors
+        granularity: 33_sector
+        implementation_priority: medium
+        notes: 第二阶段扩展用，覆盖更细粒度的 33 个行业。
+        indices:
+          - local_code: TOPIX33_FISHERY_AGRICULTURE_FORESTRY
+            name: Fishery, Agriculture & Forestry
+            level: 33_sector
+          - local_code: TOPIX33_FOODS
+            name: Foods
+            level: 33_sector
+          - local_code: TOPIX33_MINING
+            name: Mining
+            level: 33_sector
+          - local_code: TOPIX33_OIL_COAL_PRODUCTS
+            name: Oil and Coal Products
+            level: 33_sector
+          - local_code: TOPIX33_CONSTRUCTION
+            name: Construction
+            level: 33_sector
+          - local_code: TOPIX33_METAL_PRODUCTS
+            name: Metal Products
+            level: 33_sector
+          - local_code: TOPIX33_GLASS_CERAMICS_PRODUCTS
+            name: Glass and Ceramics Products
+            level: 33_sector
+          - local_code: TOPIX33_TEXTILES_APPARELS
+            name: Textiles and Apparels
+            level: 33_sector
+          - local_code: TOPIX33_PULP_PAPER
+            name: Pulp and Paper
+            level: 33_sector
+          - local_code: TOPIX33_CHEMICALS
+            name: Chemicals
+            level: 33_sector
+          - local_code: TOPIX33_PHARMACEUTICAL
+            name: Pharmaceutical
+            level: 33_sector
+          - local_code: TOPIX33_RUBBER_PRODUCTS
+            name: Rubber Products
+            level: 33_sector
+          - local_code: TOPIX33_TRANSPORTATION_EQUIPMENT
+            name: Transportation Equipment
+            level: 33_sector
+          - local_code: TOPIX33_IRON_STEEL
+            name: Iron and Steel
+            level: 33_sector
+          - local_code: TOPIX33_NONFERROUS_METALS
+            name: Nonferrous Metals
+            level: 33_sector
+          - local_code: TOPIX33_MACHINERY
+            name: Machinery
+            level: 33_sector
+          - local_code: TOPIX33_ELECTRIC_APPLIANCES
+            name: Electric Appliances
+            level: 33_sector
+          - local_code: TOPIX33_PRECISION_INSTRUMENTS
+            name: Precision Instruments
+            level: 33_sector
+          - local_code: TOPIX33_OTHER_PRODUCTS
+            name: Other Products
+            level: 33_sector
+          - local_code: TOPIX33_ELECTRIC_POWER_GAS
+            name: Electric Power and Gas
+            level: 33_sector
+          - local_code: TOPIX33_LAND_TRANSPORTATION
+            name: Land Transportation
+            level: 33_sector
+          - local_code: TOPIX33_MARINE_TRANSPORTATION
+            name: Marine Transportation
+            level: 33_sector
+          - local_code: TOPIX33_AIR_TRANSPORTATION
+            name: Air Transportation
+            level: 33_sector
+          - local_code: TOPIX33_WAREHOUSING_HARBOR_TRANSPORT
+            name: Warehousing and Harbor Transportation Services
+            level: 33_sector
+          - local_code: TOPIX33_INFORMATION_COMMUNICATION
+            name: Information & Communication
+            level: 33_sector
+          - local_code: TOPIX33_WHOLESALE_TRADE
+            name: Wholesale Trade
+            level: 33_sector
+          - local_code: TOPIX33_RETAIL_TRADE
+            name: Retail Trade
+            level: 33_sector
+          - local_code: TOPIX33_BANKS
+            name: Banks
+            level: 33_sector
+          - local_code: TOPIX33_SECURITIES_COMMODITY_FUTURES
+            name: Securities & Commodity Futures
+            level: 33_sector
+          - local_code: TOPIX33_INSURANCE
+            name: Insurance
+            level: 33_sector
+          - local_code: TOPIX33_OTHER_FINANCING_BUSINESS
+            name: Other Financing Business
+            level: 33_sector
+          - local_code: TOPIX33_REAL_ESTATE
+            name: Real Estate
+            level: 33_sector
+          - local_code: TOPIX33_SERVICES
+            name: Services
+            level: 33_sector

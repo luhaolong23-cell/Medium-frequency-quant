@@ -1,0 +1,20 @@
+[Unit]
+Description=Quant Platform API Gateway
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/luuuu/miniconda3/envs/new-auto-trading
+Environment=PYTHONPATH=/home/luuuu/miniconda3/envs/new-auto-trading
+Environment=QUANT_STORAGE_BACKEND=sqlite
+Environment=QUANT_SQLITE_PATH=data/quant-platform.sqlite3
+Environment=QUANT_MARKET_DATA_PROVIDER=yfinance
+Environment=QUANT_API_HOST=0.0.0.0
+Environment=QUANT_API_PORT=18080
+ExecStart=/home/luuuu/miniconda3/envs/new-auto-trading/scripts/start_api_gateway.sh
+Restart=always
+RestartSec=5
+User=luuuu
+
+[Install]
+WantedBy=multi-user.target

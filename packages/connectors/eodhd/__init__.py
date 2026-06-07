@@ -1,0 +1,1 @@
+# EODHD connector package.

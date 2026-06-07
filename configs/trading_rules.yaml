@@ -1,0 +1,8 @@
+signal:
+  min_volume_ratio_5d: 1.05
+exit:
+  max_drawdown_from_peak_pct: 0.30
+  consecutive_shrink_down_days: 3
+execution:
+  fixed_order_amount: 10000
+  quantity_precision: 4

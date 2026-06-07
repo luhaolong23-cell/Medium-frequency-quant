@@ -1,0 +1,1 @@
+# Twelve Data connector package.

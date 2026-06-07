@@ -1,0 +1,25 @@
+app:
+  name: quant-platform
+  env: dev
+  timezone: UTC
+
+api_gateway:
+  host: 0.0.0.0
+  port: 8000
+
+scheduler:
+  timezone: UTC
+  jobs:
+    sync_refdata_hour: 0
+    ingest_market_bars_hour: 1
+    run_regime_hour: 2
+    run_regime_day_of_week: mon
+    sync_stock_universe_inventory_hour: 3
+    sync_stock_universe_inventory_day_of_week: mon
+    prepare_hot_themes_hour: 4
+    prepare_hot_themes_interval_days: 3
+    sync_stock_universe_bars_hour: 4
+    compute_stock_universe_metrics_hour: 5
+    run_stock_selection_hour: 6
+    run_position_monitor_hour: 7
+    sync_background_universe_inventory_hour: 8

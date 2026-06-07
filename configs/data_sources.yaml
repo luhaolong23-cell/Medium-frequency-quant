@@ -1,0 +1,14 @@
+sources:
+  market_reference:
+    primary: config
+  market_bars:
+    primary: yfinance
+    fallback: mock
+  fx_rates:
+    primary: none
+timeouts:
+  connect_seconds: 10
+  read_seconds: 30
+retry:
+  max_attempts: 3
+  backoff_seconds: 2

@@ -1,0 +1,43 @@
+daily_ranking:
+  min_price: 10
+  min_avg_dollar_volume_20d: 10000000
+  min_volume_ratio_3d: 1.1
+  max_distance_to_60d_high: 0.18
+  max_vol_20d: 0.7
+  min_composite_score: 60
+  min_ret_5d: 0.01
+  max_ret_5d: 0.08
+  max_ret_20d: 0.15
+  min_ma20_to_ma60_ratio: 0.98
+  min_momentum_acceleration: 0.0
+  min_volume_up_days_5d: 2
+  max_close_to_ma20_extension: 0.12
+  watchlist_size: 5
+  weights:
+    theme: 20
+    lagging: 25
+    trend_recovery: 20
+    momentum_acceleration: 20
+    volume_probe: 10
+    risk_control: 5
+
+seed_discovery:
+  enabled: true
+  max_candidates_per_market: 30
+  max_scan_pages_per_market: 8
+  universe_page_size: 100
+  max_universe_pages_per_market: 20
+  max_selected_per_market: 30
+  min_market_cap: 3000000000
+  max_market_cap: 10000000000
+  max_price_position_ratio: 0.35
+  heat_top_industries: 5
+  heat_top_sectors: 3
+  heat_min_constituents: 2
+  heat_lookback_days: 3
+  fixed_hot_theme_names:
+    - 光伏
+    - 半导体
+    - 电力
+    - 芯片
+    - 航天

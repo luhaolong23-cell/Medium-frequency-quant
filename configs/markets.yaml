@@ -1,0 +1,497 @@
+markets:
+  - market_code: US_EQ
+    market_name: United States Equities
+    country_code: US
+    region: NORTH_AMERICA
+    proxies:
+      - symbol: SPY
+        proxy_type: ETF
+        exchange_code: ARCA
+        currency: USD
+        priority: 1
+      - symbol: ^GSPC
+        proxy_type: INDEX
+        exchange_code: INDEX
+        currency: USD
+        priority: 2
+
+  - market_code: CA_EQ
+    market_name: Canada Equities
+    country_code: CA
+    region: NORTH_AMERICA
+    proxies:
+      - symbol: EWC
+        proxy_type: ETF
+        exchange_code: ARCA
+        currency: USD
+        priority: 1
+      - symbol: ^GSPTSE
+        proxy_type: INDEX
+        exchange_code: TSX
+        currency: CAD
+        priority: 2
+
+  - market_code: MX_EQ
+    market_name: Mexico Equities
+    country_code: MX
+    region: LATAM
+    proxies:
+      - symbol: EWW
+        proxy_type: ETF
+        exchange_code: ARCA
+        currency: USD
+        priority: 1
+      - symbol: ^MXX
+        proxy_type: INDEX
+        exchange_code: BMV
+        currency: MXN
+        priority: 2
+
+  - market_code: BR_EQ
+    market_name: Brazil Equities
+    country_code: BR
+    region: LATAM
+    proxies:
+      - symbol: EWZ
+        proxy_type: ETF
+        exchange_code: ARCA
+        currency: USD
+        priority: 1
+      - symbol: ^BVSP
+        proxy_type: INDEX
+        exchange_code: B3
+        currency: BRL
+        priority: 2
+
+  - market_code: UK_EQ
+    market_name: United Kingdom Equities
+    country_code: GB
+    region: EUROPE
+    proxies:
+      - symbol: EWU
+        proxy_type: ETF
+        exchange_code: ARCA
+        currency: USD
+        priority: 1
+      - symbol: ^FTSE
+        proxy_type: INDEX
+        exchange_code: LSE
+        currency: GBP
+        priority: 2
+
+  - market_code: DE_EQ
+    market_name: Germany Equities
+    country_code: DE
+    region: EUROPE
+    proxies:
+      - symbol: EWG
+        proxy_type: ETF
+        exchange_code: ARCA
+        currency: USD
+        priority: 1
+      - symbol: ^GDAXI
+        proxy_type: INDEX
+        exchange_code: XETRA
+        currency: EUR
+        priority: 2
+
+  - market_code: FR_EQ
+    market_name: France Equities
+    country_code: FR
+    region: EUROPE
+    proxies:
+      - symbol: EWQ
+        proxy_type: ETF
+        exchange_code: ARCA
+        currency: USD
+        priority: 1
+      - symbol: ^FCHI
+        proxy_type: INDEX
+        exchange_code: EPA
+        currency: EUR
+        priority: 2
+
+  - market_code: CH_EQ
+    market_name: Switzerland Equities
+    country_code: CH
+    region: EUROPE
+    proxies:
+      - symbol: EWL
+        proxy_type: ETF
+        exchange_code: ARCA
+        currency: USD
+        priority: 1
+      - symbol: ^SSMI
+        proxy_type: INDEX
+        exchange_code: SIX
+        currency: CHF
+        priority: 2
+
+  - market_code: NL_EQ
+    market_name: Netherlands Equities
+    country_code: NL
+    region: EUROPE
+    proxies:
+      - symbol: EWN
+        proxy_type: ETF
+        exchange_code: ARCA
+        currency: USD
+        priority: 1
+      - symbol: ^AEX
+        proxy_type: INDEX
+        exchange_code: EURONEXT
+        currency: EUR
+        priority: 2
+
+  - market_code: ES_EQ
+    market_name: Spain Equities
+    country_code: ES
+    region: EUROPE
+    proxies:
+      - symbol: EWP
+        proxy_type: ETF
+        exchange_code: ARCA
+        currency: USD
+        priority: 1
+      - symbol: ^IBEX
+        proxy_type: INDEX
+        exchange_code: BME
+        currency: EUR
+        priority: 2
+
+  - market_code: IT_EQ
+    market_name: Italy Equities
+    country_code: IT
+    region: EUROPE
+    proxies:
+      - symbol: EWI
+        proxy_type: ETF
+        exchange_code: ARCA
+        currency: USD
+        priority: 1
+      - symbol: FTSEMIB.MI
+        proxy_type: INDEX
+        exchange_code: MILANO
+        currency: EUR
+        priority: 2
+
+  - market_code: SE_EQ
+    market_name: Sweden Equities
+    country_code: SE
+    region: EUROPE
+    proxies:
+      - symbol: EWD
+        proxy_type: ETF
+        exchange_code: ARCA
+        currency: USD
+        priority: 1
+      - symbol: ^OMX
+        proxy_type: INDEX
+        exchange_code: OMX
+        currency: SEK
+        priority: 2
+
+  - market_code: JP_EQ
+    market_name: Japan Equities
+    country_code: JP
+    region: ASIA
+    proxies:
+      - symbol: EWJ
+        proxy_type: ETF
+        exchange_code: ARCA
+        currency: USD
+        priority: 1
+      - symbol: ^N225
+        proxy_type: INDEX
+        exchange_code: TSE
+        currency: JPY
+        priority: 2
+
+  - market_code: HK_EQ
+    market_name: Hong Kong Equities
+    country_code: HK
+    region: ASIA
+    proxies:
+      - symbol: EWH
+        proxy_type: ETF
+        exchange_code: ARCA
+        currency: USD
+        priority: 1
+      - symbol: ^HSI
+        proxy_type: INDEX
+        exchange_code: HKEX
+        currency: HKD
+        priority: 2
+
+  - market_code: CN_EQ
+    market_name: China Equities
+    country_code: CN
+    region: ASIA
+    proxies:
+      - symbol: MCHI
+        proxy_type: ETF
+        exchange_code: NASDAQ
+        currency: USD
+        priority: 1
+      - symbol: 000001.SS
+        proxy_type: INDEX
+        exchange_code: SSE
+        currency: CNY
+        priority: 2
+
+  - market_code: KR_EQ
+    market_name: South Korea Equities
+    country_code: KR
+    region: ASIA
+    proxies:
+      - symbol: EWY
+        proxy_type: ETF
+        exchange_code: ARCA
+        currency: USD
+        priority: 1
+      - symbol: ^KS11
+        proxy_type: INDEX
+        exchange_code: KRX
+        currency: KRW
+        priority: 2
+
+  - market_code: TW_EQ
+    market_name: Taiwan Equities
+    country_code: TW
+    region: ASIA
+    proxies:
+      - symbol: EWT
+        proxy_type: ETF
+        exchange_code: ARCA
+        currency: USD
+        priority: 1
+      - symbol: ^TWII
+        proxy_type: INDEX
+        exchange_code: TWSE
+        currency: TWD
+        priority: 2
+
+  - market_code: IN_EQ
+    market_name: India Equities
+    country_code: IN
+    region: ASIA
+    proxies:
+      - symbol: INDA
+        proxy_type: ETF
+        exchange_code: BATS
+        currency: USD
+        priority: 1
+      - symbol: ^NSEI
+        proxy_type: INDEX
+        exchange_code: NSE
+        currency: INR
+        priority: 2
+
+  - market_code: SG_EQ
+    market_name: Singapore Equities
+    country_code: SG
+    region: ASIA
+    proxies:
+      - symbol: EWS
+        proxy_type: ETF
+        exchange_code: ARCA
+        currency: USD
+        priority: 1
+      - symbol: ^STI
+        proxy_type: INDEX
+        exchange_code: SGX
+        currency: SGD
+        priority: 2
+
+  - market_code: AU_EQ
+    market_name: Australia Equities
+    country_code: AU
+    region: OCEANIA
+    proxies:
+      - symbol: EWA
+        proxy_type: ETF
+        exchange_code: ARCA
+        currency: USD
+        priority: 1
+      - symbol: ^AXJO
+        proxy_type: INDEX
+        exchange_code: ASX
+        currency: AUD
+        priority: 2
+
+  - market_code: ZA_EQ
+    market_name: South Africa Equities
+    country_code: ZA
+    region: AFRICA
+    proxies:
+      - symbol: EZA
+        proxy_type: ETF
+        exchange_code: ARCA
+        currency: USD
+        priority: 1
+      - symbol: J200.JO
+        proxy_type: INDEX
+        exchange_code: JSE
+        currency: ZAR
+        priority: 2
+
+  - market_code: TR_EQ
+    market_name: Turkey Equities
+    country_code: TR
+    region: MIDDLE_EAST
+    proxies:
+      - symbol: TUR
+        proxy_type: ETF
+        exchange_code: ARCA
+        currency: USD
+        priority: 1
+      - symbol: XU100.IS
+        proxy_type: INDEX
+        exchange_code: BIST
+        currency: TRY
+        priority: 2
+
+  - market_code: IL_EQ
+    market_name: Israel Equities
+    country_code: IL
+    region: MIDDLE_EAST
+    proxies:
+      - symbol: EIS
+        proxy_type: ETF
+        exchange_code: ARCA
+        currency: USD
+        priority: 1
+      - symbol: TA125.TA
+        proxy_type: INDEX
+        exchange_code: TASE
+        currency: ILS
+        priority: 2
+
+  - market_code: ID_EQ
+    market_name: Indonesia Equities
+    country_code: ID
+    region: ASIA
+    proxies:
+      - symbol: EIDO
+        proxy_type: ETF
+        exchange_code: ARCA
+        currency: USD
+        priority: 1
+      - symbol: ^JKSE
+        proxy_type: INDEX
+        exchange_code: IDX
+        currency: IDR
+        priority: 2
+
+  - market_code: MY_EQ
+    market_name: Malaysia Equities
+    country_code: MY
+    region: ASIA
+    proxies:
+      - symbol: EWM
+        proxy_type: ETF
+        exchange_code: ARCA
+        currency: USD
+        priority: 1
+      - symbol: ^KLSE
+        proxy_type: INDEX
+        exchange_code: BURSA
+        currency: MYR
+        priority: 2
+
+  - market_code: TH_EQ
+    market_name: Thailand Equities
+    country_code: TH
+    region: ASIA
+    proxies:
+      - symbol: THD
+        proxy_type: ETF
+        exchange_code: ARCA
+        currency: USD
+        priority: 1
+      - symbol: ^SET.BK
+        proxy_type: INDEX
+        exchange_code: SET
+        currency: THB
+        priority: 2
+
+  - market_code: PH_EQ
+    market_name: Philippines Equities
+    country_code: PH
+    region: ASIA
+    proxies:
+      - symbol: EPHE
+        proxy_type: ETF
+        exchange_code: ARCA
+        currency: USD
+        priority: 1
+      - symbol: PSEI.PS
+        proxy_type: INDEX
+        exchange_code: PSE
+        currency: PHP
+        priority: 2
+
+  - market_code: SA_EQ
+    market_name: Saudi Arabia Equities
+    country_code: SA
+    region: MIDDLE_EAST
+    proxies:
+      - symbol: KSA
+        proxy_type: ETF
+        exchange_code: ARCA
+        currency: USD
+        priority: 1
+      - symbol: TASI.SR
+        proxy_type: INDEX
+        exchange_code: TADAWUL
+        currency: SAR
+        priority: 2
+
+  - market_code: AE_EQ
+    market_name: United Arab Emirates Equities
+    country_code: AE
+    region: MIDDLE_EAST
+    proxies:
+      - symbol: UAE
+        proxy_type: ETF
+        exchange_code: NASDAQ
+        currency: USD
+        priority: 1
+      - symbol: DFMGI.AE
+        proxy_type: INDEX
+        exchange_code: DFM
+        currency: AED
+        priority: 2
+
+  - market_code: EG_EQ
+    market_name: Egypt Equities
+    country_code: EG
+    region: AFRICA
+    proxies:
+      - symbol: EGPT
+        proxy_type: ETF
+        exchange_code: ARCA
+        currency: USD
+        priority: 1
+      - symbol: EGX30.CA
+        proxy_type: INDEX
+        exchange_code: EGX
+        currency: EGP
+        priority: 2
+
+  - market_code: AR_EQ
+    market_name: Argentina Equities
+    country_code: AR
+    region: LATAM
+    proxies:
+      - symbol: ARGT
+        proxy_type: ETF
+        exchange_code: ARCA
+        currency: USD
+        priority: 1
+      - symbol: ^MERV
+        proxy_type: INDEX
+        exchange_code: BYMA
+        currency: ARS
+        priority: 2
+

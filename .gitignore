@@ -1,0 +1,16 @@
+data/
+apps/frontend/node_modules/
+apps/frontend/dist/
+
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.pyc
+*.pyo
+
+*.log
+.env
+.env.*
+
+.codex-patch-test
