@@ -271,3 +271,56 @@
 - `scripts/start_scheduler.sh`
 - `deploy/systemd/quant-platform-api.service`
 - `deploy/systemd/quant-platform-scheduler.service`
+
+## 9. GitHub 后首次拉下来的最小启动方式
+
+如果别人从 GitHub 第一次拉下这个项目，建议按这套最小步骤启动：
+
+1. 安装 Python 依赖
+2. 安装前端依赖
+3. 从根目录 `.env.example` 复制一份本地环境变量
+4. 启动 API
+5. 启动 Scheduler
+6. 打开前端页面
+
+示例：
+
+```bash
+cd /path/to/new-auto-trading
+
+python -m pip install -e .
+cd apps/frontend && npm install && cd ../..
+
+cp .env.example .env
+mkdir -p data
+
+set -a
+source .env
+set +a
+```
+
+启动 API：
+
+```bash
+./scripts/start_api_gateway.sh
+```
+
+启动 Scheduler：
+
+```bash
+./scripts/start_scheduler.sh
+```
+
+启动前端：
+
+```bash
+cd apps/frontend
+npm run dev -- --host 0.0.0.0
+```
+
+默认地址：
+
+- 前端：`http://127.0.0.1:5173`
+- API：`http://127.0.0.1:18080`
+
+首次启动后，Scheduler 会先执行一轮初始化全流程，之后再按调度自动更新。

@@ -160,3 +160,25 @@ sudo journalctl -u quant-platform-scheduler -f
 - 资金账户同步
 - 更完整的风险约束
 - 盘中实时逐笔监控
+
+## 9. `.env.example` 的使用方式
+
+仓库根目录已经提供 `.env.example`，推荐首次部署时这样使用：
+
+```bash
+cp .env.example .env
+mkdir -p data
+set -a
+source .env
+set +a
+```
+
+最小必需变量：
+
+- `QUANT_STORAGE_BACKEND=sqlite`
+- `QUANT_SQLITE_PATH=data/quant-platform.sqlite3`
+- `QUANT_MARKET_DATA_PROVIDER=yfinance`
+- `QUANT_API_HOST=0.0.0.0`
+- `QUANT_API_PORT=18080`
+
+如果不想手工 `source .env`，也可以在 `systemd` 或进程管理器里直接写这些环境变量。
