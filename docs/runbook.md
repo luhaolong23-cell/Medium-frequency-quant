@@ -168,9 +168,6 @@ sudo journalctl -u quant-platform-scheduler -f
 ```bash
 cp .env.example .env
 mkdir -p data
-set -a
-source .env
-set +a
 ```
 
 最小必需变量：
@@ -181,4 +178,6 @@ set +a
 - `QUANT_API_HOST=0.0.0.0`
 - `QUANT_API_PORT=18080`
 
-如果不想手工 `source .env`，也可以在 `systemd` 或进程管理器里直接写这些环境变量。
+`./scripts/start_api_gateway.sh` 和 `./scripts/start_scheduler.sh` 会自动读取项目根目录 `.env`。
+
+如果你使用 `systemd` 或其他进程管理器，也可以直接把这些环境变量写到服务配置里。

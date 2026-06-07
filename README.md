@@ -293,10 +293,6 @@ cd apps/frontend && npm install && cd ../..
 
 cp .env.example .env
 mkdir -p data
-
-set -a
-source .env
-set +a
 ```
 
 启动 API：
@@ -322,5 +318,7 @@ npm run dev -- --host 0.0.0.0
 
 - 前端：`http://127.0.0.1:5173`
 - API：`http://127.0.0.1:18080`
+
+启动脚本会自动读取项目根目录 `.env`。
 
 首次启动后，Scheduler 会先执行一轮初始化全流程，之后再按调度自动更新。
